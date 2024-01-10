@@ -13,8 +13,8 @@ import { Userdetails } from './models/userdetails';
 import { ViewuserComponent } from './viewuser/viewuser.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import { environment } from 'src/environments/environment';
 import * as Cloudinary from 'cloudinary-core';
+import { environment } from 'src/environments/environment';
 import { FileUploadModule } from 'ng2-file-upload';
 import { RegisterComponent } from './register/register.component';
 import { ProductaddComponent } from './productadd/productadd.component';
@@ -96,7 +96,7 @@ import { SellerpassqordchngComponent } from './sellerpassqordchng/sellerpassqord
     FormsModule,
     FileUploadModule,
     ExportAsModule ,
-    CloudinaryModule.forRoot(Cloudinary,environment.cloudinaryconfig),
+    CloudinaryModule.forRoot(Cloudinary, environment.cloudinaryconfig),
     NgbModule,
     MdbModalModule,
     FontAwesomeModule,
