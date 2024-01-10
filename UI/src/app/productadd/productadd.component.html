@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="container-fluid mb-lg-4">
+    <div class="card mx-auto">
+        <div class="card-header ">
+            <p>Book Registration</p>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <form  #bookreg="ngForm" (ngSubmit)="bookreg.form.valid && onSubmit(bookreg)">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" placeholder="Enter Book Name" name="bookname" class="form-control" [(ngModel)]="bookobj.bookname" [required]="true">
+                            <input type="text" placeholder="Enter Book Author" name="author" class="form-control"  [required]="true" [(ngModel)]="bookobj.author">
+                            <input type="text" placeholder="Enter Publishers" class="form-control"name="publisher" [required]="true" [(ngModel)]="bookobj.publisher">
+                            <input type="text" name="price" placeholder="Enter price" class="form-control" [(ngModel)]="bookobj.price" >
+                            <input type="text" name="description" placeholder="Enter description" class="form-control" [(ngModel)]="bookobj.description">
+                            <input type="text" name="category" placeholder="Enter category" class="form-control" [(ngModel)]="bookobj.category">
+                        </div>
+                        <div class="col-6 " >
+                             <div class="box" >
+                                <div >
+                                    <img *ngFor="let url of previews" [src]="url" width="100px" height="100px">
+                                </div>
+                             </div>
+                             <input type="file" ng2FileSelect [uploader]="uploader" (change)="previewimg($event)" class="file-upload">
+                            <button type="button" (click)="uploadsideimg()" class="btn btn-success center">All Upload</button>
+                        </div>
+                        <p [hidden]="!uploadimg" class="text-success">Upload success</p>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-success">Book Add</button>
+                        <p [hidden]="!addmsg" class="text-success">Book Register Success</p>
+                    </div>   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
