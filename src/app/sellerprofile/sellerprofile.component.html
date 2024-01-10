@@ -1,0 +1,38 @@
+
+<app-navbar>
+</app-navbar>
+<div class="container-fluid ">
+    <div class="card mx-auto">
+        
+        <div class="card-body">
+            <div class="form-group mx-auto">
+              
+                <form #profile="ngForm" (ngSubmit)="profile.form.valid && updateProfile(profile)" >
+                    <div class="avatar">
+                        <img [src]="sellerobj.profile" alt="Avatar">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter Name" name="name" class="form-control" [(ngModel)]="sellerobj.sellername" #username="ngModel" required pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$">
+                        <input type="text"   placeholder="Enter address" name="address" class="form-control" [(ngModel)]="sellerobj.address" required pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" #address="ngModel">
+              
+                        <input type="date"  placeholder="Enter dob" name="dob" class="form-control" [(ngModel)]="sellerobj.dob" required #dob="ngModel">
+
+                        <input type="file"  (change)="onUpload($event)"/>
+                        <!-- <button (click)="onUpload()" class="btn btn-success form-field">Upload</button> -->
+                      
+                        <!-- <p [hidden]="!uploadmsg" class="text-success">Image uploaded</p> -->
+                    </div>
+                   
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                    <p c [hidden]="!updatemsg" class="text-success">Update Success</p>
+                </form>
+             
+               
+            </div>
+        </div>
+  
+       
+    </div>
+</div>

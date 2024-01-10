@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mb-lg-4">
+    <div class="card mx-auto">
+        <div class="card-header">
+            <p>Become A Seller</p>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <form #regform="ngForm" (ngSubmit)="regform.valid &&
+                    onSubmit(regform)">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" placeholder="Enter Name" name="name" class="form-control"
+                                [(ngModel)]="sellerobj.sellername" />
+                            <input type="text" placeholder="Enter Email" name="email" class="form-control"
+                                [(ngModel)]="sellerobj.selleremail" />
+                            <input type="text" placeholder="Enter mobile" class="form-control" name="mobile"
+                                [(ngModel)]="sellerobj.mobile" />
+                            <input type="text" name="address" placeholder="Enter Address" class="form-control"
+                                [(ngModel)]="sellerobj.address" />
+                            <input type="date" name="dob" placeholder="Enter Date of Birth" class="form-control"
+                                [(ngModel)]="sellerobj.dob" />
+                            <input type="password" name="password" placeholder="Enter password" class="form-control"
+                                [(ngModel)]="sellerobj.password" #password="ngModel"
+                                (keyup)="getpassword(password.value)" />
+
+                        </div>
+                        <div class="col-6">
+                            <div class="box">
+                                <img src="{{ profileurl }}" width="150px" height="160px" />
+                            </div>
+
+                            <input type="file" class="file-upload" (change)="previewImg($event)" />
+                            <button type="button" class="btn btn-success center" (click)="onUpload()">
+                                Upload Profile
+                            </button>
+                            <input type="text" name="confirmpassword" placeholder="Enter Confirm password"
+                                class="form-control" [(ngModel)]="sellerobj.confirmpassword" #confirmpassword="ngModel"
+                                (keyup)="checkpassword(confirmpassword.value)" />
+                            <p [hidden]="passwordmatch" class="text-danger">
+                                Password doesn't match
+                            </p>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                        <p class="text-success" *ngIf="regsuccess">
+                            Registration Successful.Your id is {{ sellerid }}
+                        </p>
+                        <p class="text-danger" [hidden]="!errormsg">
+                          Mobile or Email Already Exists
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
