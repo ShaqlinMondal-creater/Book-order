@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+  <div class="container-fluid jumbotron">
+        <div class="card">
+            <div class="card-header">
+              <div class="mb-3 row">
+                <div class="col-3">
+                  <select class="form-select" [(ngModel)]="downloadAs">
+                    <option selected value="png">png</option>
+                    <option value="xlsx">xlsx</option>
+                    <option value="pdf">pdf</option>
+              
+                  </select>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn btn-success" (click)="export()">
+                    Downlaod as {{ downloadAs }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table   datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="table table-bordered table-striped text-center " id="usertable">
+                  <thead>
+                      <tr>
+                        <th>SellerId</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                          <th>Mobile</th>
+                          <th>Address</th>
+                          <th>DOB</th>
+                          <th>Profile</th>
+                          <th>ActiveStatus</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                      <tbody>
+                          <tr *ngFor="let seller of allseller">
+                              <td>{{seller.sellerId}}</td>
+                              <td>{{seller.sellername}}</td>
+                              
+                              <td>{{seller.selleremail}}</td>
+                              <td>{{seller.mobile}}</td>
+                              <td>{{seller.address}}</td>
+                              <td>{{seller.dob}}</td>
+                              <td>
+                                <img [src]="seller.profile">
+                              </td>
+                              <td>
+                                <input type="checkbox" [checked]="seller.activeStatus" (change)="status($event,seller)" class="form-checkbox">
+                              </td>
+                              <td><button class="btn btn-danger" (click)="onDelete(seller)">Delete</button></td>
+                          </tr>
+                      
+                      </tbody>
+                 
+              </table>
+              </div>
+                
+            </div>
+            <div class="card-footer">
+             <p>All User</p>
+            </div>
+        </div>
+</div>

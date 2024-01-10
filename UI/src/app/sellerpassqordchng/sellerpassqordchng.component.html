@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container-fluid ">
+    <div class="card mx-auto">
+        <div class="card-header">
+            <p>Change Password</p>
+        </div>
+        <div class="card-body">
+            <div class="form-group mx-auto">
+                <form (ngSubmit)="onSubmit()">
+                    <input type="email" placeholder="Enter email" name="email" class="form-control" [readonly]="true" [(ngModel)]="sellerobj.selleremail">
+                    <input type="password" placeholder="Enter New password" name="password" class="form-control" [(ngModel)]="sellerobj.password">
+              
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-success">Change</button>
+                    </div>
+                </form>
+                <p class="text-success" [hidden]="!updatemsg">Password Changed</p>
+                <p class="text-danger" [hidden]="!errormsg">New Password and Old Password mathced</p>
+            </div>
+        </div>
+  
+       
+    </div>
+</div>
