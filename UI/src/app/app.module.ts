@@ -96,7 +96,7 @@ import { SellerpassqordchngComponent } from './sellerpassqordchng/sellerpassqord
     FormsModule,
     FileUploadModule,
     ExportAsModule ,
-    CloudinaryModule,
+    CloudinaryModule.forRoot(Cloudinary,environment.cloudinaryconfig),
     NgbModule,
     MdbModalModule,
     FontAwesomeModule,
