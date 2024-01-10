@@ -1,0 +1,108 @@
+<nav class="navbar  sticky-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <fa-icon [icon]="book" class="book-icon me-1"></fa-icon>
+      <a class="navbar-brand" href="#">PUSTAK</a>
+    </div>
+
+    <div class="form-group" *ngIf="(!isLogin() && !isAdminLogin() && !isSellerLogin())||isLogin()">
+      <input
+        type="search"
+        name="search"
+        placeholder="Search Book"
+        class="form-control mx-auto"
+        [(ngModel)]="searchitem"
+        (keyup)="search($event)"
+        />
+    </div>
+
+    <ul class="navbar-nav navbar-right">
+      <li class="nav-item" *ngIf="(!isLogin() && !isAdminLogin() && !isSellerLogin())||isLogin()"><a [routerLink]="'/'" class="nav-link">HOME</a></li>
+      <li class="nav-item" *ngIf="!isLogin() && !isAdminLogin() && !isSellerLogin()"><a [routerLink]="'/sellerregister'" class="nav-link">Become Seller</a></li>
+      <li class="nav-item dropdown" *ngIf="!isLogin() && !isAdminLogin() && !isSellerLogin()">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="true" >
+          User
+        </a>
+        <ul class="dropdown-menu position-absolute " aria-labelledby="navbarDropdown" >
+          
+          <li>
+            <a [routerLink]="'/login'" class="dropdown-item" >USER</a>
+          </li>
+          <li>
+            <a [routerLink]="'/admin'"class="dropdown-item">ADMIN</a>
+          </li>
+          <li >
+            <a [routerLink]="'/sellerlogin'"class="dropdown-item">SELLER</a>
+          </li>
+        </ul>
+      </li>
+
+      <li *ngIf="isLogin()" class="nav-item">
+        <a [routerLink]="'/addtocart'" class="nav-link">
+          <fa-icon [icon]="carticon" class="icon"></fa-icon>
+          <span class="badge rounded-pill badge-notification bg-danger">{{
+            noOfCart
+            }}</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="true" >
+          Profile
+        </a>
+     
+        <ul class="dropdown-menu position-absolute " aria-labelledby="navbarDropdown" *ngIf="isLogin()">
+          <li>
+            <a [routerLink]="'/updatepassword'"  class="dropdown-item">PASSWORD</a>
+          </li>
+          <li><a [routerLink]="'/orders'" class="dropdown-item">ORDERS</a></li>
+          <li><a [routerLink]="'/profile'" class="dropdown-item" >PROFILE</a>
+          </li>
+        
+          <li (click)="logout()" >
+            <a  class="dropdown-item">LOGOUT</a>
+          </li>
+        </ul>
+      </li>
+    
+
+      <li *ngIf="isSellerLogin()" class="nav-item"><a [routerLink]="'/productbyseller'" class="nav-link">VIEW BOOKS</a></li>
+      <li *ngIf="isSellerLogin()" class="nav-item"><a [routerLink]="'/orderview'" class="nav-link">VIEW ORDERS</a></li>
+      <li class="nav-item dropdown" *ngIf="isSellerLogin()">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="true" >
+          Profile
+        </a>
+     
+        <ul class="dropdown-menu position-absolute " aria-labelledby="navbarDropdown" *ngIf="isSellerLogin()">
+          <li>
+            <a [routerLink]="'/passwordseller'"  class="dropdown-item">PASSWORD</a>
+          </li>
+          
+          <li><a [routerLink]="'/sellerprofile'" class="dropdown-item" >PROFILE</a>
+          </li>
+        
+          <li (click)="logout()" >
+            <a  class="dropdown-item">LOGOUT</a>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="isAdminLogin()" class="nav-item">
+        <a [routerLink]="'/viewuser'" class="nav-link">VIEW USER</a>
+      </li>
+      <li *ngIf="isAdminLogin()" class="nav-item">
+        <a [routerLink]="'/adminpassword'" class="nav-link">PASSWORD CHANGE</a>
+      </li>
+      <li *ngIf="isAdminLogin()" class="nav-item">
+        <a [routerLink]="'/viewallseller'" class="nav-link">VIEW SELLER</a>
+      </li>
+      <li *ngIf="isAdminLogin()" class="nav-item">
+        <a [routerLink]="'/viewallproduct'" class="nav-link">VIEW PRODUCT</a>
+      </li>
+      <li *ngIf="isAdminLogin()" class="nav-item">
+        <a [routerLink]="'/viewallorder'" class="nav-link">VIEW ORDER</a>
+      </li>
+      <li *ngIf="isAdminLogin()" (click)="logout()" class="nav-item">
+        <a class="nav-link"> <fa-icon [icon]="logouticon"></fa-icon></a>
+      </li>
+    </ul>
+  </div>
+</nav>

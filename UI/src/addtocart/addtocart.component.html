@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container-fluid jumbotron" *ngFor="let cartitem of allcart" >
+    
+    <div class="card" [hidden]="!cartdiv" >
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <img [src]="cartitem.bookImage" alt="book">
+                </div>
+                <div class="col-6">
+                    <h4>BookName:{{cartitem.bookname}}</h4>
+                    <em>Category:{{cartitem.category}}</em>
+                    <p>Author:{{cartitem.author}}</p>
+                    <p>Publisher:{{cartitem.publisher}}</p>
+                    <p>Price:{{cartitem.price}}</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+           <button class="btn btn-danger me-2" (click)="removeCart(cartitem)" >Remove Cart</button>
+           <button class="btn btn-success"(click)="buyNow(cartitem)" >Buy Now</button>
+        </div>
+    </div>
+
+    <h5 [hidden]="!msg">No order Place</h5>
+</div>

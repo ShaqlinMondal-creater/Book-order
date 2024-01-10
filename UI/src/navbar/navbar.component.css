@@ -1,0 +1,73 @@
+.navbar {
+    margin: 0;
+    padding: 0;
+    
+    background-color: #13662a;
+  
+  }
+  
+ .nav-item{
+    float: left;
+    list-style: none;
+ }
+  
+ .nav-link{
+    display: inline-block;
+    color: rgb(249, 248, 248);
+    text-align: center;
+    padding: 15px 18px;
+    margin-right: 2px;
+    text-decoration: none;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .nav-link:hover:not(.navbar-brand) {
+    background-color: rgb(72, 126, 77);
+  }
+  
+  .navbar-brand {
+    background-color: #13662a;
+    color: whitesmoke;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:bold;
+  }
+
+  .badge{
+    margin-left: -1px;
+    top:-1px;
+    font-size: xx-small;
+   
+}
+.icon{
+    font-size: 20px;
+}
+.navbar-nav{
+    display: inline-block;
+}
+.book-icon{
+  color:aliceblue;
+  font-size: large;
+
+}
+.form-group{
+  width: 350px;
+}
+
+.dropdown-menu{
+  offset-position: 10;
+}
+.dropdown ul {
+  min-width: 80px;
+  right: -5;
+  white-space: 1;
+  margin-left: 10px;
+  background-color: #13662a;
+ 
+}
+.dropdown ul a{
+  color:aliceblue
+}
+.dropdown ul a:hover{
+  background-color: transparent;
+}
