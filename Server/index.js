@@ -1,11 +1,22 @@
+var cors=require('cors');
+app.use(cors());
+
 const express=require('express');
-var app=express();
+//var app=express();
+
+const app = express()
+app.use(cors(
+{
+    origin:[""],
+    methods:["POST","GET"],
+    credentials:true
+}
+));
 
 var bodyparser=require("body-parser");
 app.use(bodyparser.json());
 
-var cors=require('cors');
-app.use(cors());
+
 
 
 
