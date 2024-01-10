@@ -32,7 +32,7 @@ import { SellerpassqordchngComponent } from './sellerpassqordchng/sellerpassqord
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'book-order-api.vercel.app/home',
     pathMatch: 'full',
   },
  
