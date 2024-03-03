@@ -1,8 +1,9 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
@@ -13,8 +14,9 @@ import { Userdetails } from './models/userdetails';
 import { ViewuserComponent } from './viewuser/viewuser.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import { environment } from 'src/environments/environment';
 import * as Cloudinary from 'cloudinary-core';
+// import { environment } from 'src/environments/environment.ts';
+import { environment } from '../environments/environment';
 import { FileUploadModule } from 'ng2-file-upload';
 import { RegisterComponent } from './register/register.component';
 import { ProductaddComponent } from './productadd/productadd.component';
@@ -29,7 +31,7 @@ import { Orderdetails } from './models/orderdetails';
 import { OrdersComponent } from './orders/orders.component';
 import { ViewallorderComponent } from './viewallorder/viewallorder.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { Cartdetails } from './models/cartdetails';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
@@ -56,8 +58,11 @@ import { OrdersviewbysellerComponent } from './ordersviewbyseller/ordersviewbyse
 import { SellerGuard } from './auth-guard/seller.guard';
 import { AdminpasswordchngeComponent } from './adminpasswordchnge/adminpasswordchnge.component';
 import { SellerpassqordchngComponent } from './sellerpassqordchng/sellerpassqordchng.component';
+import { AppComponent } from './app.component';
+
 @NgModule({
   declarations: [
+    
     AppComponent,
     HomeComponent,
     NavbarComponent,
@@ -96,10 +101,11 @@ import { SellerpassqordchngComponent } from './sellerpassqordchng/sellerpassqord
     FormsModule,
     FileUploadModule,
     ExportAsModule ,
-    CloudinaryModule.forRoot(Cloudinary,environment.cloudinaryconfig),
+    CloudinaryModule.forRoot(Cloudinary, environment.cloudinaryconfig),
     NgbModule,
     MdbModalModule,
     FontAwesomeModule,
+    
     DataTablesModule,
     Ng2SearchPipeModule,
     MdbDropdownModule
